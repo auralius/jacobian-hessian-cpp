@@ -4,7 +4,18 @@
  * @date 28 Jan 2017
  * @brief A header file for a user defined mathematical function.
  *
- * @section DESCRIPTION
+ * @mainpage
+ * This codes calculate numerically the Jacobian and the Hessian of a vector of function.
+ * For matrix operation, Armadillo is used: http://arma.sourceforge.net/
+ * To install, do the follwoing:
+ * \code
+ * mkdir build  
+ * cd build  
+ * cmake ..  
+ * make
+ * \endcode
+ * There is an example provided.
+ * To understand the concept, let's take an example of a function of vector, with 3 input parameters and 2 output parameters:
  * Example:
  * A function of vector, with 3 input parameters and 2 output parameters. 
  * \f[y = \begin{bmatrix} f_1(x_1,x_2,x_3) \\ f_2(x_1,x_2,x_3) \end{bmatrix} \f]
