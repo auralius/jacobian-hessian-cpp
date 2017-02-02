@@ -50,7 +50,7 @@ mat FX::JacobianAt(colvec &x, colvec &some_constants)
     return jac;
 }
 
-mat FX::HessianAt(colvec &x, colvec &some_constants, int i)
+mat FX::HessianAt(int i, colvec &x, colvec &some_constants)
 {
     int n = x.size();
     mat hess;

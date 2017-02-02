@@ -31,3 +31,8 @@
 # Folders
 bin/
 .kdev4/
+
+# VS2015
+*.db
+*.filters
+*.exe

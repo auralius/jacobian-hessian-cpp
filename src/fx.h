@@ -76,7 +76,7 @@ public:
      * \param i For a function of vector, do Hessian at i-th element of the vector.
      * \return Hessian at location x.
      */
-    mat HessianAt(colvec &x, colvec &some_constants, int i);
+    mat HessianAt(int i, colvec &x, colvec &some_constants = colvec());
      
     /*!
      * \brief Solve the function at certain inputs.
