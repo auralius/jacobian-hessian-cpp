@@ -1,0 +1,4 @@
+[Project]
+Name=jacobian-hessian-cpp
+Manager=KDevCMakeManager
+VersionControl=kdevgit
