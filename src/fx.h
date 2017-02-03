@@ -57,6 +57,13 @@ public:
     FX(colvec(*f) (colvec &x, colvec &some_constants));
     
     /*!
+     * \brief Constructor, create a mathematical function.
+     * \param f Address to the user defined mathematical function.
+     * Without additional constants to be passed. 
+     */
+    FX(colvec(*f) (colvec &x));
+    
+    /*!
      * \brief Destructor, nothing happens here.
      */
     ~FX();
@@ -70,13 +77,28 @@ public:
     mat JacobianAt(colvec &x, colvec &some_constants);
     
     /*!
+     * \brief Calculate the Jacobian at certain inputs.
+     * \param x Location where the Jacobian is computed.
+     * \return Jacobian at location x
+     */
+    mat JacobianAt(colvec &x);
+    
+    /*!
      * \brief Calculate the Hessian, at certain inputs.
      * \param x Location where the Hessian is computed.
      * \param some_constants Optional constants used in the function.
      * \param i For a function of vector, do Hessian at i-th element of the vector.
      * \return Hessian at location x.
      */
-    mat HessianAt(int i, colvec &x, colvec &some_constants = colvec());
+    mat HessianAt(int i, colvec &x, colvec &some_constants);
+    
+    /*!
+     * \brief Calculate the Hessian, at certain inputs.
+     * \param x Location where the Hessian is computed.
+     * \param i For a function of vector, do Hessian at i-th element of the vector.
+     * \return Hessian at location x.
+     */
+    mat HessianAt(int i, colvec &x);
      
     /*!
      * \brief Solve the function at certain inputs.
@@ -85,6 +107,14 @@ public:
      * \return Result from solving the function.
      */
     colvec SolveAt(colvec &x, colvec &some_constants);
+    
+    /*!
+     * \brief Solve the function at certain inputs.
+     * \param x Location where the function is solved.
+     * \param some_constants Optional constants used in the function.
+     * \return Result from solving the function.
+     */
+    colvec SolveAt(colvec &x);
 
     /*!
      * \brief A very small number.
@@ -93,7 +123,18 @@ public:
     void SetEpsilon(double epsilon);
 
 private: 
-    colvec (*F_) (colvec &x, colvec &some_constants); ///< Remember the address of the callback function.
+    /*!
+     * \brief A callback function: \f$ y=x(x, k) \f$
+     * \f$ k \f$ is just a vector of constants 
+     * which will not be used for derivation.
+     */
+    colvec (*Fxk_) (colvec &x, colvec &some_constants);
+    
+    /*!
+     * \brief Simpler callback function: \f$ y=f(x) \f$, 
+     * without additional constants to be passed.
+     */
+    colvec (*Fx_) (colvec &x);
 
     double Epsilon_; ///< Number of the states
 };

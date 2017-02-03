@@ -1,4 +1,0 @@
-[Project]
-Name=numerical-jacobian-hessian-cpp
-Manager=KDevCMakeManager
-VersionControl=kdevgit
